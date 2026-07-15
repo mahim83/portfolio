@@ -1,20 +1,21 @@
 /* ============================================================
    Mahim Katiyar — Portfolio
-   Scroll reveals + ambient EEG trace in the hero.
+   Theme toggle, scrollspy, scroll reveals, typed role line,
+   and the contact form.
    ============================================================ */
 
 (function () {
   "use strict";
 
-  /* ---------- theme toggle ---------- */
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  /* ---------- theme toggle (dark by default) ---------- */
   var root = document.documentElement;
   var toggle = document.getElementById("theme-toggle");
   if (toggle) {
     var stored = null;
     try { stored = localStorage.getItem("theme"); } catch (e) {}
-    var initial = (stored === "dark" || stored === "light")
-      ? stored
-      : (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    var initial = stored === "light" ? "light" : "dark";
     root.setAttribute("data-theme", initial);
     toggle.setAttribute("aria-pressed", String(initial === "dark"));
 
@@ -24,6 +25,32 @@
       toggle.setAttribute("aria-pressed", String(next === "dark"));
       try { localStorage.setItem("theme", next); } catch (e) {}
     });
+  }
+
+  /* ---------- typed role line: titles appear one by one ---------- */
+  var typedEl = document.getElementById("typed");
+  if (typedEl) {
+    var phrases = ["Software Engineer", "Backend Developer", "Machine Learning Enthusiast"];
+    if (reduced.matches) {
+      typedEl.textContent = phrases.join(" | ");
+    } else {
+      var pi = 0, ci = 0, deleting = false;
+      var typeTick = function () {
+        var word = phrases[pi];
+        if (!deleting) {
+          ci++;
+          typedEl.textContent = word.slice(0, ci);
+          if (ci === word.length) { deleting = true; setTimeout(typeTick, 1800); return; }
+          setTimeout(typeTick, 70);
+        } else {
+          ci--;
+          typedEl.textContent = word.slice(0, ci);
+          if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; setTimeout(typeTick, 400); return; }
+          setTimeout(typeTick, 35);
+        }
+      };
+      setTimeout(typeTick, 1000); /* start after the hero load sequence */
+    }
   }
 
   /* ---------- scrollspy: highlight the section in view ---------- */
@@ -45,7 +72,6 @@
   }
 
   /* ---------- scroll reveal ---------- */
-  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
   if (!reduced.matches && "IntersectionObserver" in window) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
@@ -96,93 +122,4 @@
       note.textContent = "Opening your email app — press send there to deliver it.";
     });
   }
-
-  /* ---------- ambient EEG trace ---------- */
-  var canvas = document.getElementById("eeg");
-  if (!canvas || !canvas.getContext) return;
-  var ctx = canvas.getContext("2d");
-  var w = 0, h = 0, dpr = 1, raf = null, t = 0;
-
-  function colors() {
-    var s = getComputedStyle(document.documentElement);
-    return {
-      a: s.getPropertyValue("--trace-a").trim() || "rgba(229,162,63,0.5)",
-      b: s.getPropertyValue("--trace-b").trim() || "rgba(143,165,161,0.28)"
-    };
-  }
-  var col = colors();
-
-  function resize() {
-    dpr = Math.min(window.devicePixelRatio || 1, 2);
-    w = canvas.offsetWidth;
-    h = canvas.offsetHeight;
-    canvas.width = Math.round(w * dpr);
-    canvas.height = Math.round(h * dpr);
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-  }
-
-  /* EEG-like waveform: slow drift + mid ripple + high-freq bursts */
-  function sig(x, time, p) {
-    var slow = Math.sin(x * p.f1 + time * p.v1);
-    var mid = Math.sin(x * p.f2 - time * p.v2 + p.ph);
-    var env = (Math.sin(x * p.bf + time * p.bv) + 1) / 2;
-    env = env * env * env; /* sharpen into bursts */
-    var burst = Math.sin(x * p.f3 + time * p.v3) * env;
-    return (slow * 0.45 + mid * 0.3 + burst * 0.9) * p.amp;
-  }
-
-  var traces = [
-    { y: 0.30, amp: 14, f1: 0.006, v1: 0.4, f2: 0.021, v2: 0.9, ph: 1.7, f3: 0.09, v3: 2.2, bf: 0.004, bv: 0.23, color: "b", lw: 1 },
-    { y: 0.52, amp: 22, f1: 0.005, v1: 0.5, f2: 0.017, v2: 1.1, ph: 0.3, f3: 0.11, v3: 2.6, bf: 0.003, bv: 0.31, color: "a", lw: 1.5 },
-    { y: 0.74, amp: 12, f1: 0.007, v1: 0.35, f2: 0.024, v2: 0.8, ph: 4.1, f3: 0.08, v3: 1.9, bf: 0.005, bv: 0.19, color: "b", lw: 1 }
-  ];
-
-  function draw() {
-    ctx.clearRect(0, 0, w, h);
-    traces.forEach(function (p) {
-      ctx.beginPath();
-      var base = h * p.y;
-      for (var x = 0; x <= w; x += 3) {
-        var y = base + sig(x, t, p);
-        if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
-      }
-      ctx.strokeStyle = p.color === "a" ? col.a : col.b;
-      ctx.lineWidth = p.lw;
-      ctx.stroke();
-    });
-  }
-
-  function loop() {
-    t += 0.016;
-    draw();
-    raf = requestAnimationFrame(loop);
-  }
-
-  function start() {
-    resize();
-    col = colors();
-    if (raf) cancelAnimationFrame(raf);
-    if (reduced.matches) { draw(); }
-    else { raf = requestAnimationFrame(loop); }
-  }
-
-  window.addEventListener("resize", start);
-  if (reduced.addEventListener) reduced.addEventListener("change", start);
-
-  /* re-read palette when the theme flips (OS or manual toggle) */
-  var scheme = window.matchMedia("(prefers-color-scheme: dark)");
-  if (scheme.addEventListener) scheme.addEventListener("change", start);
-  new MutationObserver(start).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
-
-  /* pause when the hero is off-screen */
-  if ("IntersectionObserver" in window) {
-    new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) { if (!raf && !reduced.matches) raf = requestAnimationFrame(loop); }
-        else if (raf) { cancelAnimationFrame(raf); raf = null; }
-      });
-    }).observe(canvas);
-  }
-
-  start();
 })();

@@ -4,46 +4,9 @@
    serif display + mono labels. Light & dark themes via tokens.
    ============================================================ */
 
+/* dark is the default theme; light is opt-in via the toggle */
 :root {
-  --bg: #F4F6F4;
-  --surface: #ECF0EC;
-  --ink: #16292B;
-  --muted: #52696A;
-  --line: rgba(22, 41, 43, 0.16);
-  --accent: #9A6210;
-  --accent-ink: #7C4E0B;
-  --chip-bg: rgba(22, 41, 43, 0.05);
-  --nav-bg: rgba(244, 246, 244, 0.86);
-  --trace-a: rgba(154, 98, 16, 0.55);
-  --trace-b: rgba(82, 105, 106, 0.35);
-  --glow: rgba(154, 98, 16, 0.1);
-  --ok: #177B54;
-  --ok-glow: rgba(23, 123, 84, 0.35);
-  --serif: "Charter", "Bitstream Charter", "Cambria", "Georgia", serif;
-  --sans: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
-  --mono: ui-monospace, "Cascadia Code", "Consolas", "SF Mono", "Menlo", monospace;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0C1618;
-    --surface: #111F22;
-    --ink: #E6EEEA;
-    --muted: #8FA5A1;
-    --line: rgba(230, 238, 234, 0.15);
-    --accent: #E5A23F;
-    --accent-ink: #EFB55C;
-    --chip-bg: rgba(230, 238, 234, 0.05);
-    --nav-bg: rgba(12, 22, 24, 0.84);
-    --trace-a: rgba(229, 162, 63, 0.5);
-    --trace-b: rgba(143, 165, 161, 0.28);
-    --glow: rgba(229, 162, 63, 0.09);
-    --ok: #4CC38A;
-    --ok-glow: rgba(76, 195, 138, 0.35);
-  }
-}
-
-:root[data-theme="dark"] {
+  color-scheme: dark;
   --bg: #0C1618;
   --surface: #111F22;
   --ink: #E6EEEA;
@@ -53,14 +16,32 @@
   --accent-ink: #EFB55C;
   --chip-bg: rgba(230, 238, 234, 0.05);
   --nav-bg: rgba(12, 22, 24, 0.84);
-  --trace-a: rgba(229, 162, 63, 0.5);
-  --trace-b: rgba(143, 165, 161, 0.28);
+  --glow: rgba(229, 162, 63, 0.09);
+  --ok: #4CC38A;
+  --ok-glow: rgba(76, 195, 138, 0.35);
+  --serif: "Charter", "Bitstream Charter", "Cambria", "Georgia", serif;
+  --sans: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, "Cascadia Code", "Consolas", "SF Mono", "Menlo", monospace;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0C1618;
+  --surface: #111F22;
+  --ink: #E6EEEA;
+  --muted: #8FA5A1;
+  --line: rgba(230, 238, 234, 0.15);
+  --accent: #E5A23F;
+  --accent-ink: #EFB55C;
+  --chip-bg: rgba(230, 238, 234, 0.05);
+  --nav-bg: rgba(12, 22, 24, 0.84);
   --glow: rgba(229, 162, 63, 0.09);
   --ok: #4CC38A;
   --ok-glow: rgba(76, 195, 138, 0.35);
 }
 
 :root[data-theme="light"] {
+  color-scheme: light;
   --bg: #F4F6F4;
   --surface: #ECF0EC;
   --ink: #16292B;
@@ -70,8 +51,6 @@
   --accent-ink: #7C4E0B;
   --chip-bg: rgba(22, 41, 43, 0.05);
   --nav-bg: rgba(244, 246, 244, 0.86);
-  --trace-a: rgba(154, 98, 16, 0.55);
-  --trace-b: rgba(82, 105, 106, 0.35);
   --glow: rgba(154, 98, 16, 0.1);
   --ok: #177B54;
   --ok-glow: rgba(23, 123, 84, 0.35);
@@ -195,14 +174,6 @@ button:focus-visible {
   border-bottom: 1px solid var(--line);
 }
 
-.hero canvas {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
 .hero::after {
   content: "";
   position: absolute;
@@ -277,6 +248,33 @@ button:focus-visible {
   text-transform: uppercase;
   color: var(--accent-ink);
   margin: 0 0 1.5rem;
+  min-height: 1.4em;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.caret {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 3px;
+  vertical-align: -0.12em;
+  background: var(--accent);
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
 }
 
 .hero p.lede {
@@ -646,6 +644,7 @@ footer .to-top:hover { color: var(--accent-ink); }
   .badge .dot { animation: none; }
   .btn:hover { transform: none; }
   .p-body h3::after { transition: none; }
+  .caret { display: none; }
 }
 
 /* ---------- mobile ---------- */

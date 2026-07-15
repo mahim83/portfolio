@@ -8,12 +8,11 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230C1618'/%3E%3Cpath d='M8 38 L18 38 L24 24 L32 46 L40 18 L46 38 L56 38' fill='none' stroke='%23E5A23F' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="css/styles.css">
 <script>
-  /* apply a saved theme choice before first paint to avoid a flash */
+  /* dark by default; apply a saved light choice before first paint to avoid a flash */
   (function () {
-    try {
-      var t = localStorage.getItem("theme");
-      if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
-    } catch (e) {}
+    var t = "dark";
+    try { if (localStorage.getItem("theme") === "light") t = "light"; } catch (e) {}
+    document.documentElement.setAttribute("data-theme", t);
   })();
 </script>
 </head>
@@ -39,22 +38,23 @@
 
   <!-- ================= HERO ================= -->
   <section class="hero" aria-label="Introduction">
-    <canvas id="eeg" aria-hidden="true"></canvas>
     <div class="hero-inner">
-      <p class="badge rise rise-1"><span class="dot" aria-hidden="true"></span>Open to internships &amp; collaborations</p>
+      <p class="badge rise rise-1"><span class="dot" aria-hidden="true"></span>Open to internships &amp; full-time jobs</p>
       <h1 class="rise rise-2">Mahim Katiyar</h1>
-      <p class="role rise rise-3">Software Engineer | Backend Developer | Machine Learning Enthusiast</p>
+      <p class="role rise rise-3">
+        <span class="sr-only">Software Engineer | Backend Developer | Machine Learning Enthusiast</span>
+        <span aria-hidden="true"><span id="typed"></span><span class="caret"></span></span>
+      </p>
       <p class="lede rise rise-4">
         Final-year Computer Engineering student at Thapar Institute of Engineering and Technology,
         passionate about building scalable backend systems, intelligent ML solutions, and solving
-        complex algorithmic challenges. Experienced with <strong>Python, FastAPI, Docker, AWS,
-        SQL, and C++</strong>.
+        complex algorithmic challenges.
       </p>
       <div class="hero-links rise rise-5">
         <a class="btn primary" href="#projects">See my work</a>
         <a class="btn" href="RESUME.pdf" target="_blank" rel="noopener">Résumé</a>
         <a class="btn" href="https://github.com/mahim83" target="_blank" rel="noopener">GitHub</a>
-        <a class="btn" href="https://www.linkedin.com/in/mahim-katiyar" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://www.linkedin.com/in/mahim-katiyar-65701727b/" target="_blank" rel="noopener">LinkedIn</a>
         <a class="btn" href="https://leetcode.com/u/mahim83/" target="_blank" rel="noopener">LeetCode</a>
       </div>
     </div>
@@ -261,7 +261,7 @@
             <a class="btn" href="mailto:mahimkatiyar83@gmail.com">mahimkatiyar83@gmail.com</a>
             <a class="btn" href="tel:+919120545490">+91 91205 45490</a>
             <a class="btn" href="https://github.com/mahim83" target="_blank" rel="noopener">github.com/mahim83</a>
-            <a class="btn" href="https://www.linkedin.com/in/mahim-katiyar" target="_blank" rel="noopener">in/mahim-katiyar</a>
+            <a class="btn" href="https://www.linkedin.com/in/mahim-katiyar-65701727b/" target="_blank" rel="noopener">in/mahim-katiyar</a>
             <a class="btn" href="https://leetcode.com/u/mahim83/" target="_blank" rel="noopener">leetcode.com/u/mahim83</a>
           </div>
         </div>
