@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mahim Katiyar — AI/ML · Computer Engineering</title>
+<meta name="description" content="Portfolio of Mahim Katiyar — Software Engineer, Backend Developer, and Machine Learning enthusiast; final-year Computer Engineering student at Thapar Institute.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230C1618'/%3E%3Cpath d='M8 38 L18 38 L24 24 L32 46 L40 18 L46 38 L56 38' fill='none' stroke='%23E5A23F' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/styles.css">
+<script>
+  /* apply a saved theme choice before first paint to avoid a flash */
+  (function () {
+    try {
+      var t = localStorage.getItem("theme");
+      if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top"><b>MK</b> · mahim katiyar</a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#projects">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch between dark and light theme" aria-pressed="false">
+      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" aria-label="Introduction">
+    <canvas id="eeg" aria-hidden="true"></canvas>
+    <div class="hero-inner">
+      <p class="badge rise rise-1"><span class="dot" aria-hidden="true"></span>Open to internships &amp; collaborations</p>
+      <h1 class="rise rise-2">Mahim Katiyar</h1>
+      <p class="role rise rise-3">Software Engineer | Backend Developer | Machine Learning Enthusiast</p>
+      <p class="lede rise rise-4">
+        Final-year Computer Engineering student at Thapar Institute of Engineering and Technology,
+        passionate about building scalable backend systems, intelligent ML solutions, and solving
+        complex algorithmic challenges. Experienced with <strong>Python, FastAPI, Docker, AWS,
+        SQL, and C++</strong>.
+      </p>
+      <div class="hero-links rise rise-5">
+        <a class="btn primary" href="#projects">See my work</a>
+        <a class="btn" href="RESUME.pdf" target="_blank" rel="noopener">Résumé</a>
+        <a class="btn" href="https://github.com/mahim83" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/mahim-katiyar" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://leetcode.com/u/mahim83/" target="_blank" rel="noopener">LeetCode</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROJECTS ================= -->
+  <section id="projects">
+    <div class="wrap">
+      <p class="sec-label reveal">Selected work</p>
+      <h2 class="sec-title reveal">Models and tools, built end to end.</h2>
+
+      <article class="project reveal">
+        <div class="p-date">May 2026</div>
+        <div class="p-body">
+          <h3>Pneumonia Detection from Chest X-rays</h3>
+          <p>
+            A transfer-learning system for binary classification of chest X-ray images.
+            Implemented and compared <strong>DenseNet121, ResNet18, and MobileNetV2</strong> across
+            TensorFlow/Keras and PyTorch, with image preprocessing and two-phase fine-tuning on
+            pretrained ImageNet weights. Evaluated on accuracy, ROC-AUC, precision, recall, and
+            F1 — reaching <strong>90.87% accuracy</strong> with the best model.
+          </p>
+          <div class="tags">
+            <span class="tag">TensorFlow / Keras</span>
+            <span class="tag">PyTorch</span>
+            <span class="tag">Transfer learning</span>
+            <span class="tag">Medical imaging</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project reveal">
+        <div class="p-date">Jan 2026</div>
+        <div class="p-body">
+          <h3>TOPSIS — Python Package for Multi-Criteria Decision Making</h3>
+          <p>
+            A reusable, distribution-ready Python package implementing the TOPSIS algorithm.
+            Ships a <strong>CLI for CSV/XLSX datasets</strong> with automated validation of weights
+            and impacts, weighted normalization, ideal-solution computation, and ranking logic —
+            structured to standard Python packaging conventions.
+          </p>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">CLI</span>
+            <span class="tag">Packaging</span>
+            <span class="tag">Pandas / NumPy</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project reveal">
+        <div class="p-date">Apr 2025</div>
+        <div class="p-body">
+          <h3>Fake News Classification with NLP &amp; Deep Learning</h3>
+          <p>
+            An end-to-end NLP pipeline — tokenization, stop-word removal, stemming, and sequence
+            padding — feeding a <strong>Bidirectional LSTM</strong> built in TensorFlow/Keras that
+            classifies news articles as real or fake, evaluated on real and fake news datasets.
+          </p>
+          <div class="tags">
+            <span class="tag">NLP</span>
+            <span class="tag">BiLSTM</span>
+            <span class="tag">TensorFlow / Keras</span>
+            <span class="tag">Text preprocessing</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ================= EXPERIENCE ================= -->
+  <section id="experience" class="alt">
+    <div class="wrap">
+      <p class="sec-label reveal">Experience</p>
+      <h2 class="sec-title reveal">Research in the lab.</h2>
+      <div class="xp reveal">
+        <div class="p-date">Jun – Jul 2025</div>
+        <div>
+          <h3>AI Research Intern — ELC Summer Internship</h3>
+          <p class="org">Thapar Institute of Engineering and Technology</p>
+          <ul>
+            <li>Contributed to an AI-based human–computer interaction system for <strong>ADHD detection from EEG signals</strong>.</li>
+            <li>Applied LSTM, BiLSTM, CNN, and VAE architectures for EEG-based analysis.</li>
+            <li>Handled EEG preprocessing, model training, and evaluation end-to-end.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SKILLS ================= -->
+  <section id="skills">
+    <div class="wrap">
+      <p class="sec-label reveal">Toolkit</p>
+      <h2 class="sec-title reveal">What I work with.</h2>
+      <div class="skill-grid">
+        <div class="skill-group reveal">
+          <h3>Languages</h3>
+          <div class="tags">
+            <span class="tag">C</span><span class="tag">C++</span>
+            <span class="tag">Python</span><span class="tag">SQL</span>
+          </div>
+        </div>
+        <div class="skill-group reveal">
+          <h3>AI / ML</h3>
+          <div class="tags">
+            <span class="tag">Machine Learning</span><span class="tag">Deep Learning</span>
+            <span class="tag">NLP</span><span class="tag">TensorFlow</span>
+            <span class="tag">PyTorch</span><span class="tag">Keras</span>
+            <span class="tag">Scikit-learn</span>
+          </div>
+        </div>
+        <div class="skill-group reveal">
+          <h3>Core CS</h3>
+          <div class="tags">
+            <span class="tag">Data Structures &amp; Algorithms</span><span class="tag">OOP</span>
+            <span class="tag">DBMS</span><span class="tag">Operating Systems</span>
+            <span class="tag">Computer Networks</span>
+          </div>
+        </div>
+        <div class="skill-group reveal">
+          <h3>Backend &amp; Cloud</h3>
+          <div class="tags">
+            <span class="tag">FastAPI</span><span class="tag">Pydantic</span>
+            <span class="tag">REST APIs</span><span class="tag">Docker</span>
+            <span class="tag">AWS</span><span class="tag">Git / GitHub</span>
+          </div>
+        </div>
+        <div class="skill-group reveal">
+          <h3>Data</h3>
+          <div class="tags">
+            <span class="tag">Pandas</span><span class="tag">NumPy</span>
+            <span class="tag">Matplotlib</span>
+          </div>
+        </div>
+        <div class="skill-group reveal">
+          <h3>Spoken</h3>
+          <div class="tags">
+            <span class="tag">English (fluent)</span><span class="tag">Hindi (fluent)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EDUCATION + LEADERSHIP ================= -->
+  <section id="education" class="alt">
+    <div class="wrap two-col">
+      <div>
+        <p class="sec-label reveal">Education</p>
+        <h2 class="sec-title reveal">Where I've studied.</h2>
+        <div class="row reveal">
+          <div class="row-date">2023 – Present</div>
+          <div>
+            <h3>Thapar Institute of Engineering and Technology, Patiala</h3>
+            <p>B.E. in Computer Engineering — <span class="score">CGPA 8.39</span></p>
+          </div>
+        </div>
+        <div class="row reveal">
+          <div class="row-date">2022</div>
+          <div>
+            <h3>Woodbine Gardenia School, Kanpur</h3>
+            <p>Class 12 (CBSE) — <span class="score">95%</span></p>
+          </div>
+        </div>
+        <div class="row reveal">
+          <div class="row-date">2020</div>
+          <div>
+            <h3>Woodbine Gardenia School, Kanpur</h3>
+            <p>Class 10 (CBSE) — <span class="score">97.8%</span></p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="sec-label reveal">On campus</p>
+        <h2 class="sec-title reveal">Beyond the lab.</h2>
+        <div class="row reveal">
+          <div class="row-date">Aug 2024 – May 2025</div>
+          <div>
+            <h3>Mess Secretary, Hostel B</h3>
+            <p>Managed mess operations with staff to keep service quality high; led a 30-member team planning and running Hostel Night.</p>
+          </div>
+        </div>
+        <div class="row reveal">
+          <div class="row-date">Oct 2024 – Jul 2025</div>
+          <div>
+            <h3>Member, Paryavaran Welfare Society</h3>
+            <p>Helped organize Econigma 5.0 and sustainability-focused campus events; coordinated outreach for workshops and competitions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <p class="sec-label reveal">Contact</p>
+      <div class="contact-grid">
+        <div>
+          <p class="big reveal">Working on something interesting in ML or data science? <a href="mailto:mkatiyar_be23@thapar.edu">Write to me.</a></p>
+          <p class="reveal">I'm open to internships, research collaborations, and projects in machine learning, data science, and backend engineering.</p>
+          <div class="contact-links reveal">
+            <a class="btn" href="mailto:mkatiyar_be23@thapar.edu">mkatiyar_be23@thapar.edu</a>
+            <a class="btn" href="tel:+919120545490">+91 91205 45490</a>
+            <a class="btn" href="https://github.com/mahim83" target="_blank" rel="noopener">github.com/mahim83</a>
+            <a class="btn" href="https://www.linkedin.com/in/mahim-katiyar" target="_blank" rel="noopener">in/mahim-katiyar</a>
+            <a class="btn" href="https://leetcode.com/u/mahim83/" target="_blank" rel="noopener">leetcode.com/u/mahim83</a>
+          </div>
+        </div>
+        <form id="write-form" class="write-form reveal">
+          <div class="field">
+            <label for="cf-name">Your name</label>
+            <input id="cf-name" name="name" type="text" required autocomplete="name" placeholder="Ada Lovelace">
+          </div>
+          <div class="field">
+            <label for="cf-email">Your email</label>
+            <input id="cf-email" name="email" type="email" required autocomplete="email" placeholder="you@example.com">
+          </div>
+          <div class="field">
+            <label for="cf-msg">Message</label>
+            <textarea id="cf-msg" name="message" rows="5" required placeholder="Tell me about the project, role, or idea…"></textarea>
+          </div>
+          <button class="btn primary" type="submit">Send message</button>
+          <p class="form-note" id="form-note" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Mahim Katiyar</span>
+    <span>Kanpur · Patiala, India</span>
+    <a class="to-top" href="#top">Back to top ↑</a>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
