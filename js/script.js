@@ -62,7 +62,7 @@
      visitor's mail app via mailto:. To switch to a form service instead
      (e.g. Formspree), set FORM_ENDPOINT to your endpoint URL. */
   var FORM_ENDPOINT = ""; /* e.g. "https://formspree.io/f/yourid" */
-  var TO_ADDRESS = "mkatiyar_be23@thapar.edu";
+  var TO_ADDRESS = "mahimkatiyar83@gmail.com";
 
   var form = document.getElementById("write-form");
   if (form) {
