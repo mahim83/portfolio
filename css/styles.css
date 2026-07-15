@@ -78,7 +78,7 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: clip; }
 
 body {
   margin: 0;
@@ -88,6 +88,7 @@ body {
   font-size: 1rem;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
 }
 
 a { color: inherit; }
@@ -653,6 +654,23 @@ footer .to-top:hover { color: var(--accent-ink); }
   .p-date, .row-date { padding-top: 0; }
   .two-col { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; gap: 2.4rem; }
+  .nav-inner { gap: 0.75rem; }
   .nav-links { gap: 0.9rem; }
   .nav-links a { font-size: 0.66rem; letter-spacing: 0.1em; }
+}
+
+/* small phones: shrink the nav so it never overflows */
+@media (max-width: 560px) {
+  .brand .brand-name { display: none; }
+  .wrap { padding: 0 1.25rem; }
+  .hero-inner { padding-left: 1.25rem; padding-right: 1.25rem; }
+  .role { font-size: 0.72rem; letter-spacing: 0.1em; }
+  .badge { font-size: 0.64rem; letter-spacing: 0.1em; }
+  .write-form { padding: 1.25rem; }
+}
+
+@media (max-width: 400px) {
+  .nav-links { gap: 0.65rem; }
+  .nav-links a { font-size: 0.62rem; letter-spacing: 0.08em; }
+  .theme-toggle { width: 30px; height: 30px; }
 }
