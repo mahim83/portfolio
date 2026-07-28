@@ -9,7 +9,7 @@ Personal portfolio of Mahim Katiyar — Software Engineer, Backend Developer, an
 - Dark theme by default with a light-mode toggle (choice saved across visits)
 - Animated hero with a typewriter role line
 - Scrollspy navigation and scroll-reveal animations
-- Projects, experience, skills, education, and campus leadership sections
+- Projects (with repo and live-demo links), experience, skills, education, and campus leadership sections
 - "Write to me" contact form
 - Fully responsive — works on phones down to 320px wide
 - Respects `prefers-reduced-motion` for accessibility
@@ -27,7 +27,7 @@ Personal portfolio of Mahim Katiyar — Software Engineer, Backend Developer, an
 ├── index.html        # Markup
 ├── css/styles.css    # Design system & all styling
 ├── js/script.js      # Theme toggle, typewriter, scrollspy, form
-└── RESUME.pdf        # Downloadable résumé
+└── Final_resume.pdf  # Downloadable résumé
 ```
 
 ## Run Locally

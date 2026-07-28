@@ -411,6 +411,22 @@ section:last-of-type { border-bottom: none; }
 
 .tag:hover { border-color: var(--accent); color: var(--ink); }
 
+/* repo / demo links under a project or role */
+.p-links { display: flex; flex-wrap: wrap; gap: 1.2rem; margin-top: 0.9rem; }
+
+.p-links a {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--accent-ink);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.p-links a:hover { border-color: var(--accent); }
+
 /* ---------- experience ---------- */
 .xp {
   display: grid;

@@ -47,12 +47,12 @@
       </p>
       <p class="lede rise rise-4">
         Final-year Computer Engineering student at Thapar Institute of Engineering and Technology,
-        passionate about building scalable backend systems, intelligent ML solutions, and solving
-        complex algorithmic challenges.
+        building deep-learning models, generative-AI applications, and the FastAPI backends that
+        serve them — and solving complex algorithmic challenges along the way.
       </p>
       <div class="hero-links rise rise-5">
         <a class="btn primary" href="#projects">See my work</a>
-        <a class="btn" href="RESUME.pdf" target="_blank" rel="noopener">Résumé</a>
+        <a class="btn" href="Final_resume.pdf" target="_blank" rel="noopener">Résumé</a>
         <a class="btn" href="https://github.com/mahim83" target="_blank" rel="noopener">GitHub</a>
         <a class="btn" href="https://www.linkedin.com/in/mahim-katiyar-65701727b/" target="_blank" rel="noopener">LinkedIn</a>
         <a class="btn" href="https://leetcode.com/u/mahim83/" target="_blank" rel="noopener">LeetCode</a>
@@ -67,21 +67,51 @@
       <h2 class="sec-title reveal">Models and tools, built end to end.</h2>
 
       <article class="project reveal">
+        <div class="p-date">Jul 2026</div>
+        <div class="p-body">
+          <h3>Resume Analyzer — AI-Powered Resume Screening</h3>
+          <p>
+            A full-stack NLP web app that parses resumes (PDF/DOCX) and extracts skills and named
+            entities with <strong>spaCy PhraseMatcher and NER</strong>, served through a documented
+            FastAPI REST API and a Streamlit UI. Semantic job-description matching uses
+            sentence-transformer embeddings and cosine similarity to score resume–JD fit
+            <strong>(0–100)</strong> and surface missing skills — capturing meaning rather than
+            keyword overlap.
+          </p>
+          <div class="tags">
+            <span class="tag">FastAPI</span>
+            <span class="tag">spaCy</span>
+            <span class="tag">Sentence-Transformers</span>
+            <span class="tag">Streamlit</span>
+            <span class="tag">Docker</span>
+          </div>
+          <div class="p-links">
+            <a href="https://github.com/mahim83/resume-analyzer" target="_blank" rel="noopener">GitHub ↗</a>
+            <a href="https://resume-analyzer-mahim.streamlit.app/" target="_blank" rel="noopener">Live demo ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project reveal">
         <div class="p-date">May 2026</div>
         <div class="p-body">
           <h3>Pneumonia Detection from Chest X-rays</h3>
           <p>
-            A transfer-learning system for binary classification of chest X-ray images.
-            Implemented and compared <strong>DenseNet121, ResNet18, and MobileNetV2</strong> across
-            TensorFlow/Keras and PyTorch, with image preprocessing and two-phase fine-tuning on
-            pretrained ImageNet weights. Evaluated on accuracy, ROC-AUC, precision, recall, and
-            F1 — reaching <strong>90.87% accuracy</strong> with the best model.
+            A transfer-learning pipeline for binary classification of chest X-ray images.
+            Benchmarked <strong>DenseNet121, ResNet18, and MobileNetV2</strong> across
+            TensorFlow/Keras and PyTorch, fine-tuning ImageNet-pretrained backbones in two phases
+            with custom image preprocessing. Evaluated on accuracy, ROC-AUC, precision, recall, and
+            F1 to pick the best architecture — reaching <strong>90.87% accuracy</strong>.
           </p>
           <div class="tags">
             <span class="tag">TensorFlow / Keras</span>
             <span class="tag">PyTorch</span>
             <span class="tag">Transfer learning</span>
             <span class="tag">Medical imaging</span>
+          </div>
+          <div class="p-links">
+            <a href="https://github.com/mahim83/Pneumonia-detection-" target="_blank" rel="noopener">GitHub ↗</a>
+            <a href="https://pneumonia-detection-mahim83.streamlit.app/" target="_blank" rel="noopener">Live demo ↗</a>
           </div>
         </div>
       </article>
@@ -91,10 +121,11 @@
         <div class="p-body">
           <h3>TOPSIS — Python Package for Multi-Criteria Decision Making</h3>
           <p>
-            A reusable, distribution-ready Python package implementing the TOPSIS algorithm.
-            Ships a <strong>CLI for CSV/XLSX datasets</strong> with automated validation of weights
-            and impacts, weighted normalization, ideal-solution computation, and ranking logic —
-            structured to standard Python packaging conventions.
+            A reusable, distribution-ready Python package implementing the TOPSIS algorithm,
+            structured to standard PyPI packaging conventions. Ships a
+            <strong>CLI for CSV/XLSX datasets</strong> with automated validation of weights and
+            impacts, plus weighted normalization, ideal-solution computation, and ranking logic for
+            multi-criteria decision analysis.
           </p>
           <div class="tags">
             <span class="tag">Python</span>
@@ -102,23 +133,9 @@
             <span class="tag">Packaging</span>
             <span class="tag">Pandas / NumPy</span>
           </div>
-        </div>
-      </article>
-
-      <article class="project reveal">
-        <div class="p-date">Apr 2025</div>
-        <div class="p-body">
-          <h3>Fake News Classification with NLP &amp; Deep Learning</h3>
-          <p>
-            An end-to-end NLP pipeline — tokenization, stop-word removal, stemming, and sequence
-            padding — feeding a <strong>Bidirectional LSTM</strong> built in TensorFlow/Keras that
-            classifies news articles as real or fake, evaluated on real and fake news datasets.
-          </p>
-          <div class="tags">
-            <span class="tag">NLP</span>
-            <span class="tag">BiLSTM</span>
-            <span class="tag">TensorFlow / Keras</span>
-            <span class="tag">Text preprocessing</span>
+          <div class="p-links">
+            <a href="https://github.com/mahim83/Topsis_Package" target="_blank" rel="noopener">GitHub ↗</a>
+            <a href="https://topsispackage-mahim.streamlit.app/" target="_blank" rel="noopener">Live demo ↗</a>
           </div>
         </div>
       </article>
@@ -133,13 +150,16 @@
       <div class="xp reveal">
         <div class="p-date">Jun – Jul 2025</div>
         <div>
-          <h3>AI Research Intern — ELC Summer Internship</h3>
+          <h3>ELC Summer Internship</h3>
           <p class="org">Thapar Institute of Engineering and Technology</p>
           <ul>
-            <li>Contributed to an AI-based human–computer interaction system for <strong>ADHD detection from EEG signals</strong>.</li>
-            <li>Applied LSTM, BiLSTM, CNN, and VAE architectures for EEG-based analysis.</li>
-            <li>Handled EEG preprocessing, model training, and evaluation end-to-end.</li>
+            <li>Built an ML/DL pipeline to classify <strong>ADHD vs. healthy subjects from 19-channel EEG</strong> (121 subjects, 2.16M records), covering preprocessing, a stratified train–test split, and leakage-free feature scaling.</li>
+            <li>Benchmarked Logistic Regression, Random Forest, and a hybrid <strong>LSTM+CNN</strong> model combining spatial and temporal EEG feature extraction.</li>
+            <li>Best results came from the LSTM+CNN model — <strong>76.9% accuracy, 0.84 ROC-AUC, 0.85 ADHD recall</strong> — outperforming the baseline classifiers on non-linear EEG patterns.</li>
           </ul>
+          <div class="p-links">
+            <a href="https://github.com/mahim83/ADHD-CLASSIFICATION-USING-EEG-SIGNALS-" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
         </div>
       </div>
     </div>
@@ -168,6 +188,13 @@
           </div>
         </div>
         <div class="skill-group reveal">
+          <h3>Generative AI</h3>
+          <div class="tags">
+            <span class="tag">LangChain</span><span class="tag">LangGraph</span>
+            <span class="tag">RAG</span>
+          </div>
+        </div>
+        <div class="skill-group reveal">
           <h3>Core CS</h3>
           <div class="tags">
             <span class="tag">Data Structures &amp; Algorithms</span><span class="tag">OOP</span>
@@ -176,18 +203,25 @@
           </div>
         </div>
         <div class="skill-group reveal">
-          <h3>Backend &amp; Cloud</h3>
+          <h3>Backend</h3>
           <div class="tags">
             <span class="tag">FastAPI</span><span class="tag">Pydantic</span>
             <span class="tag">REST APIs</span><span class="tag">Docker</span>
-            <span class="tag">AWS</span><span class="tag">Git / GitHub</span>
+            <span class="tag">Git / GitHub</span>
           </div>
         </div>
         <div class="skill-group reveal">
-          <h3>Data</h3>
+          <h3>Databases</h3>
+          <div class="tags">
+            <span class="tag">MySQL</span><span class="tag">Oracle</span>
+          </div>
+        </div>
+        <div class="skill-group reveal">
+          <h3>Data &amp; Libraries</h3>
           <div class="tags">
             <span class="tag">Pandas</span><span class="tag">NumPy</span>
-            <span class="tag">Matplotlib</span>
+            <span class="tag">Matplotlib</span><span class="tag">NLTK</span>
+            <span class="tag">spaCy</span><span class="tag">Hugging Face Transformers</span>
           </div>
         </div>
         <div class="skill-group reveal">
