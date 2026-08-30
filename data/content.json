@@ -1,0 +1,200 @@
+{
+  "_readme": "This file is the whole website. Edit it after you update your resume — you never need to touch index.html, styles.css, or the JS. Text fields marked (html) accept <strong> and <em>. Projects: anything in featured/archive is hand-written; any other public repo on your GitHub appears automatically in the archive grid unless its name is in projects.hide.",
+
+  "profile": {
+    "name": "Mahim Katiyar",
+    "badge": "Open to internships & full-time jobs",
+    "roles": [
+      "Machine Learning Engineer",
+      "Generative AI Developer",
+      "Backend Developer"
+    ],
+    "intro": "Final-year Computer Engineering student at Thapar Institute of Engineering and Technology, working across <strong>machine learning</strong>, <strong>generative AI</strong>, and <strong>backend engineering</strong>. I'm most interested in taking a model past the notebook stage — measured honestly, documented, and actually shipped.",
+    "location": "Kanpur · Patiala, India",
+    "email": "mahimkatiyar83@gmail.com",
+    "phone": "+91 91205 45490",
+    "phoneHref": "+919120545490",
+    "githubUser": "mahim83",
+    "linkedin": "https://www.linkedin.com/in/mahim-katiyar-65701727b/",
+    "linkedinLabel": "in/mahim-katiyar",
+    "leetcode": "https://leetcode.com/u/mahim83/",
+    "leetcodeLabel": "leetcode.com/u/mahim83"
+  },
+
+  "stats": [
+    { "value": "8.39", "decimals": 2, "label": "CGPA / 10" },
+    { "source": "projectCount", "label": "Projects built" },
+    { "source": "demoCount", "label": "Live demos" },
+    { "value": "2027", "static": true, "label": "Graduating" }
+  ],
+
+  "sections": {
+    "projects": {
+      "label": "Selected work",
+      "title": "Models and tools, built end to end.",
+      "sub": "Agentic AI pipelines, deep-learning research, and shipped Python packages — each one runnable, most with a live demo.",
+      "archiveTitle": "More from GitHub"
+    },
+    "experience": { "label": "Experience", "title": "Research in the lab." },
+    "skills": { "label": "Toolkit", "title": "What I work with." },
+    "education": { "label": "Education", "title": "Where I've studied." },
+    "leadership": { "label": "On campus", "title": "Beyond the lab." },
+    "contact": {
+      "label": "Contact",
+      "big": "Working on something interesting in ML or data science? <a href=\"mailto:mahimkatiyar83@gmail.com\">Write to me.</a>",
+      "sub": "I'm open to internships, research collaborations, and projects in machine learning, generative AI, and backend engineering."
+    }
+  },
+
+  "projects": {
+    "autoDiscover": true,
+    "hide": [
+      "mahim83",
+      "portfolio",
+      "demo-repsitory",
+      "render-demo",
+      "MLproject",
+      "Deep-Learning-Assignments-certificates",
+      "Handwritten-Digit-classification",
+      "House-Price-Pridiction",
+      "Predictive-analytics-assignment-1",
+      "Predictive-analytics-assignment-2",
+      "ADHD-CLASSIFICATION-USING-EEG-SIGNALS-"
+    ],
+
+    "featured": [
+      {
+        "repo": "Multi-Agent-AI-Research-system",
+        "date": "Aug 2026",
+        "title": "ResearchMind — Multi-Agent AI Research System",
+        "body": "Give it a topic and four agents collaborate to produce a sourced research report. A <strong>Search agent</strong> queries Tavily, a <strong>Reader agent</strong> scrapes the most relevant page, a <strong>Writer chain</strong> drafts the report, and a <strong>Critic chain</strong> reviews and scores it out of 10. Citations are collected from raw tool output rather than the model's summary, so the sources are real — and prompt budgets are trimmed to fit Groq's free-tier token limit.",
+        "tags": ["LangChain", "Groq", "Tavily", "BeautifulSoup", "Streamlit", "Agentic AI"]
+      },
+      {
+        "repo": "AI-Video-Assistant",
+        "date": "Aug 2026",
+        "title": "AI Video Assistant",
+        "body": "Turns any YouTube video or audio file into a transcript, a structured summary, action items, decisions, and open questions — plus a chatbot you can question about its contents. Audio is chunked with yt-dlp/ffmpeg, transcribed through three switchable engines (<strong>Deepgram, Sarvam, and local Whisper</strong>), summarised map-reduce style with Mistral so long recordings never blow the context window, and indexed into <strong>ChromaDB for retrieval-augmented Q&amp;A</strong>. Every run is persisted, so reopening a video is instant.",
+        "tags": ["RAG", "ChromaDB", "Deepgram / Whisper", "Mistral", "LangChain", "Streamlit"]
+      },
+      {
+        "repo": "resume-analyzer",
+        "date": "Jul 2026",
+        "title": "Resume Analyzer — AI-Powered Resume Screening",
+        "body": "A full-stack NLP web app that parses resumes (PDF/DOCX) and extracts skills and named entities with <strong>spaCy PhraseMatcher and NER</strong>, served through a documented FastAPI REST API and a Streamlit UI. Semantic job-description matching uses sentence-transformer embeddings and cosine similarity to score resume–JD fit <strong>(0–100)</strong> and surface missing skills — capturing meaning rather than keyword overlap.",
+        "tags": ["FastAPI", "spaCy", "Sentence-Transformers", "Streamlit", "Docker"],
+        "demo": "https://resume-analyzer-mahim.streamlit.app/"
+      },
+      {
+        "repo": "Pneumonia-detection-",
+        "date": "May 2026",
+        "title": "Pneumonia Detection from Chest X-rays",
+        "body": "A transfer-learning pipeline for binary classification of chest X-ray images. Benchmarked <strong>DenseNet121, ResNet18, and MobileNetV2</strong> across TensorFlow/Keras and PyTorch, fine-tuning ImageNet-pretrained backbones in two phases with custom image preprocessing. Evaluated on accuracy, ROC-AUC, precision, recall, and F1 to pick the best architecture — reaching <strong>90.87% accuracy</strong>.",
+        "tags": ["TensorFlow / Keras", "PyTorch", "Transfer learning", "Medical imaging"],
+        "demo": "https://pneumonia-detection-mahim83.streamlit.app/"
+      },
+      {
+        "repo": "Topsis_Package",
+        "date": "Feb 2026",
+        "title": "TOPSIS — Python Package for Multi-Criteria Decision Making",
+        "body": "A reusable, distribution-ready Python package implementing the TOPSIS algorithm, structured to standard PyPI packaging conventions. Ships a <strong>CLI for CSV/XLSX datasets</strong> with automated validation of weights and impacts, plus weighted normalization, ideal-solution computation, and ranking logic for multi-criteria decision analysis.",
+        "tags": ["Python", "CLI", "Packaging", "Pandas / NumPy"],
+        "demo": "https://topsispackage-mahim.streamlit.app/"
+      }
+    ],
+
+    "archive": [
+      {
+        "repo": "Topsis-for-Pretrained-Models",
+        "date": "Feb 2026",
+        "title": "Model Selection for Sentence Similarity",
+        "body": "Benchmarked five pretrained encoders on the STS Benchmark across Pearson correlation, inference time, and model size, then ranked them with TOPSIS — all-MiniLM-L6-v2 won at 0.999.",
+        "tags": ["Sentence-Transformers", "TOPSIS", "NLP"]
+      },
+      {
+        "repo": "Building-a-Generative-Adversarial-network",
+        "date": "Feb 2026",
+        "title": "GAN for MNIST Digit Generation",
+        "body": "A generator/discriminator pair trained adversarially in PyTorch over 20 epochs — BCE loss, Adam, a 100-dim latent space — producing increasingly digit-like handwritten samples.",
+        "tags": ["PyTorch", "GAN", "Deep Learning"]
+      },
+      {
+        "repo": "Sampling",
+        "date": "Feb 2026",
+        "title": "Fraud Detection under Class Imbalance",
+        "body": "Five sampling strategies (SMOTE, NearMiss, SMOTE+Tomek, over/under-sampling) crossed with five classifiers on a 1.15%-fraud dataset — applied to training folds only, and scored on recall and ROC-AUC rather than misleading accuracy.",
+        "tags": ["Scikit-learn", "SMOTE", "Imbalanced data"]
+      },
+      {
+        "repo": "mashup",
+        "date": "Feb 2026",
+        "title": "Mashup Generator",
+        "body": "Downloads N tracks by an artist from YouTube, converts and trims each to a fixed clip, and merges them into one mashup — shipped as both a CLI and a Flask web app that emails the result as a ZIP.",
+        "tags": ["Flask", "yt-dlp / ffmpeg", "Render"]
+      },
+      {
+        "repo": "Data_Generation_using_Modelling_and_Simulation_for_Machine_Learning",
+        "date": "Feb 2026",
+        "title": "Simulation-Driven Data Generation",
+        "body": "Generated 1,000 methane–air combustion runs with the Cantera simulator, then trained eight regressors to predict adiabatic flame temperature — Random Forest led with R² = 0.995.",
+        "tags": ["Cantera", "XGBoost", "Regression"]
+      }
+    ]
+  },
+
+  "experience": [
+    {
+      "date": "Jun – Jul 2025",
+      "title": "ELC Summer Internship",
+      "org": "Thapar Institute of Engineering and Technology",
+      "points": [
+        "Built an ML/DL pipeline to classify <strong>ADHD vs. healthy subjects from 19-channel EEG</strong> (121 subjects, 2.16M records), covering preprocessing, a stratified train–test split, and leakage-free feature scaling.",
+        "Benchmarked Logistic Regression, Random Forest, and a hybrid <strong>LSTM+CNN</strong> model combining spatial and temporal EEG feature extraction.",
+        "Best results came from the LSTM+CNN model — <strong>76.9% accuracy, 0.84 ROC-AUC, 0.85 ADHD recall</strong> — outperforming the baseline classifiers on non-linear EEG patterns."
+      ],
+      "repo": "ADHD-CLASSIFICATION-USING-EEG-SIGNALS-"
+    }
+  ],
+
+  "skills": [
+    { "group": "Programming", "items": ["Python", "C++", "SQL"] },
+    { "group": "Core CS", "items": ["Data Structures & Algorithms", "OOP", "DBMS", "Operating Systems", "Computer Networks"] },
+    { "group": "ML / DL", "items": ["Feature Engineering", "Model Evaluation", "Hyperparameter Tuning", "CNNs", "RNNs", "LSTMs", "Transfer Learning"] },
+    { "group": "Generative AI", "items": ["RAG", "LangChain", "LangGraph", "Agentic AI"] },
+    { "group": "Frameworks & Libraries", "items": ["PyTorch", "TensorFlow", "Keras", "Scikit-learn", "Streamlit", "spaCy", "ChromaDB", "Pandas", "NumPy"] },
+    { "group": "Backend & Databases", "items": ["FastAPI", "Pydantic", "REST APIs", "MySQL", "PostgreSQL"] },
+    { "group": "Tools", "items": ["Docker", "Git", "GitHub", "MS Excel"] },
+    { "group": "Concepts", "items": ["System Design"] }
+  ],
+
+  "education": [
+    {
+      "date": "2023 – Present",
+      "title": "Thapar Institute of Engineering and Technology, Patiala",
+      "body": "B.E. in Computer Engineering — <span class=\"score\">CGPA 8.39</span>"
+    },
+    {
+      "date": "2022",
+      "title": "Woodbine Gardenia School, Kanpur",
+      "body": "Class 12 (CBSE) — <span class=\"score\">95%</span>"
+    },
+    {
+      "date": "2020",
+      "title": "Woodbine Gardenia School, Kanpur",
+      "body": "Class 10 (CBSE) — <span class=\"score\">97.8%</span>"
+    }
+  ],
+
+  "leadership": [
+    {
+      "date": "Aug 2024 – May 2025",
+      "title": "Mess Secretary, Hostel B",
+      "body": "Oversaw daily mess operations, coordinating with kitchen and service staff to hold food quality and service standards; led a 30-member team planning and running Hostel Night."
+    },
+    {
+      "date": "Oct 2024 – Jul 2025",
+      "title": "Member, Paryavaran Welfare Society",
+      "body": "Helped organize Econigma 5.0 and sustainability-focused campus events; coordinated outreach for workshops and competitions."
+    }
+  ]
+}

@@ -923,6 +923,23 @@ footer .to-top {
 
 footer .to-top:hover { color: var(--accent-ink); }
 
+/* ---------- no-JS fallback ---------- */
+.noscript-note {
+  padding: 4rem 1.5rem;
+  max-width: 60ch;
+}
+
+.noscript-note h1 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(2rem, 5vw, 3rem);
+  letter-spacing: -0.025em;
+  margin: 0 0 1rem;
+}
+
+.noscript-note p { color: var(--muted); margin: 0 0 1rem; }
+.noscript-note a { color: var(--accent-ink); }
+
 /* ---------- reveal ---------- */
 .reveal {
   opacity: 0;

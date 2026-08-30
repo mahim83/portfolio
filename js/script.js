@@ -1,7 +1,7 @@
 /* ============================================================
    Mahim Katiyar — Portfolio
-   Theme toggle, scroll progress, scrollspy, scroll reveals,
-   typed role line, hero stat count-up, and the contact form.
+   Behaviour layer. The page itself is built by js/render.js from
+   data/content.json; everything here runs once that's on screen.
    ============================================================ */
 
 (function () {
@@ -9,7 +9,8 @@
 
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-  /* ---------- theme toggle (dark by default) ---------- */
+  /* ---------- theme toggle (dark by default) ----------
+     Independent of the content, so it's wired up straight away. */
   var root = document.documentElement;
   var toggle = document.getElementById("theme-toggle");
   if (toggle) {
@@ -28,8 +29,9 @@
   }
 
   /* ---------- reading-progress bar ---------- */
-  var bar = document.getElementById("progress");
-  if (bar) {
+  function initProgress() {
+    var bar = document.getElementById("progress");
+    if (!bar) return;
     var ticking = false;
     var paint = function () {
       var max = document.documentElement.scrollHeight - window.innerHeight;
@@ -44,40 +46,44 @@
   }
 
   /* ---------- typed role line: titles appear one by one ---------- */
-  var typedEl = document.getElementById("typed");
-  if (typedEl) {
-    var phrases = ["Machine Learning Engineer", "Generative AI Developer", "Backend Developer"];
+  function initTyped(phrases) {
+    var typedEl = document.getElementById("typed");
+    if (!typedEl || !phrases || !phrases.length) return;
+
     if (reduced.matches) {
       typedEl.textContent = phrases.join(" | ");
-    } else {
-      var pi = 0, ci = 0, deleting = false;
-      var typeTick = function () {
-        var word = phrases[pi];
-        if (!deleting) {
-          ci++;
-          typedEl.textContent = word.slice(0, ci);
-          if (ci === word.length) { deleting = true; setTimeout(typeTick, 1800); return; }
-          setTimeout(typeTick, 70);
-        } else {
-          ci--;
-          typedEl.textContent = word.slice(0, ci);
-          if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; setTimeout(typeTick, 400); return; }
-          setTimeout(typeTick, 35);
-        }
-      };
-      setTimeout(typeTick, 1000); /* start after the hero load sequence */
+      return;
     }
+    var pi = 0, ci = 0, deleting = false;
+    var typeTick = function () {
+      var word = phrases[pi];
+      if (!deleting) {
+        ci++;
+        typedEl.textContent = word.slice(0, ci);
+        if (ci === word.length) { deleting = true; setTimeout(typeTick, 1800); return; }
+        setTimeout(typeTick, 70);
+      } else {
+        ci--;
+        typedEl.textContent = word.slice(0, ci);
+        if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; setTimeout(typeTick, 400); return; }
+        setTimeout(typeTick, 35);
+      }
+    };
+    setTimeout(typeTick, 1000); /* start after the hero load sequence */
   }
 
-  /* ---------- hero stats count up once on load ---------- */
-  var counters = document.querySelectorAll(".stat .n[data-count]");
-  if (counters.length && !reduced.matches) {
+  /* ---------- hero stats count up once ---------- */
+  function initCounters() {
+    var counters = document.querySelectorAll(".stat .n[data-count]");
+    if (!counters.length || reduced.matches) return;
     counters.forEach(function (el) {
-      var target = parseFloat(el.getAttribute("data-count"));
       var decimals = parseInt(el.getAttribute("data-decimals") || "0", 10);
-      if (isNaN(target)) return;
       var start = null, dur = 1100;
       var step = function (ts) {
+        /* read the target every frame: repos discovered from the GitHub
+           API can raise the project count while this is still running */
+        var target = parseFloat(el.getAttribute("data-count"));
+        if (isNaN(target)) return;
         if (start === null) start = ts;
         var t = Math.min(1, (ts - start) / dur);
         var eased = 1 - Math.pow(1 - t, 3); /* ease-out cubic */
@@ -90,8 +96,9 @@
   }
 
   /* ---------- scrollspy: highlight the section in view ---------- */
-  var navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
-  if (navLinks.length && "IntersectionObserver" in window) {
+  function initScrollspy() {
+    var navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+    if (!navLinks.length || !("IntersectionObserver" in window)) return;
     var linkById = {};
     navLinks.forEach(function (l) { linkById[l.getAttribute("href").slice(1)] = l; });
     var spy = new IntersectionObserver(function (entries) {
@@ -107,16 +114,23 @@
     });
   }
 
-  /* ---------- scroll reveal ---------- */
-  if (!reduced.matches && "IntersectionObserver" in window) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
-      });
-    }, { threshold: 0.12 });
-    document.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
-  } else {
-    document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("in"); });
+  /* ---------- scroll reveal ----------
+     Re-runnable: repos discovered from the GitHub API land after the
+     first pass, and observing an element twice is a no-op. */
+  var revealObserver = null;
+  function observeReveals() {
+    if (reduced.matches || !("IntersectionObserver" in window)) {
+      document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("in"); });
+      return;
+    }
+    if (!revealObserver) {
+      revealObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add("in"); revealObserver.unobserve(e.target); }
+        });
+      }, { threshold: 0.12 });
+    }
+    document.querySelectorAll(".reveal:not(.in)").forEach(function (el) { revealObserver.observe(el); });
   }
 
   /* ---------- write-to-me form ----------
@@ -124,10 +138,11 @@
      visitor's mail app via mailto:. To switch to a form service instead
      (e.g. Formspree), set FORM_ENDPOINT to your endpoint URL. */
   var FORM_ENDPOINT = ""; /* e.g. "https://formspree.io/f/yourid" */
-  var TO_ADDRESS = "mahimkatiyar83@gmail.com";
 
-  var form = document.getElementById("write-form");
-  if (form) {
+  function initForm(toAddress) {
+    var form = document.getElementById("write-form");
+    if (!form) return;
+
     form.addEventListener("submit", function (ev) {
       ev.preventDefault();
       var note = document.getElementById("form-note");
@@ -151,11 +166,36 @@
       }
 
       var subject = "Portfolio message from " + name;
-      var body = "Hi Mahim,\n\n" + msg + "\n\n— " + name + " (" + email + ")";
-      window.location.href = "mailto:" + TO_ADDRESS +
+      var body = "Hi " + (toAddress.split("@")[0] || "there") + ",\n\n" + msg + "\n\n— " + name + " (" + email + ")";
+      window.location.href = "mailto:" + toAddress +
         "?subject=" + encodeURIComponent(subject) +
         "&body=" + encodeURIComponent(body);
       note.textContent = "Opening your email app — press send there to deliver it.";
     });
   }
+
+  /* ---------- boot ---------- */
+  document.addEventListener("portfolio:cards-added", observeReveals);
+
+  window.Portfolio.build().then(function (data) {
+    initProgress();
+    initTyped(data.profile.roles);
+    initCounters();
+    initScrollspy();
+    observeReveals();
+    initForm(data.profile.email);
+  }).catch(function (err) {
+    /* If content.json can't be loaded the page would otherwise be blank,
+       so say what happened rather than showing an empty shell. */
+    if (window.console) console.error("Could not load data/content.json:", err);
+    var hero = document.getElementById("hero");
+    if (hero && !hero.children.length) {
+      hero.innerHTML =
+        '<h1>Mahim Katiyar</h1>' +
+        '<p class="lede">This page could not load its content file. ' +
+        'Reach me at <a href="mailto:mahimkatiyar83@gmail.com">mahimkatiyar83@gmail.com</a> ' +
+        'or see the work at <a href="https://github.com/mahim83">github.com/mahim83</a>.</p>';
+    }
+    initProgress();
+  });
 })();
