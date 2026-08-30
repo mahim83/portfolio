@@ -1,7 +1,7 @@
 /* ============================================================
    Mahim Katiyar — Portfolio
-   Theme toggle, scrollspy, scroll reveals, typed role line,
-   and the contact form.
+   Theme toggle, scroll progress, scrollspy, scroll reveals,
+   typed role line, hero stat count-up, and the contact form.
    ============================================================ */
 
 (function () {
@@ -27,10 +27,26 @@
     });
   }
 
+  /* ---------- reading-progress bar ---------- */
+  var bar = document.getElementById("progress");
+  if (bar) {
+    var ticking = false;
+    var paint = function () {
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      var p = max > 0 ? window.scrollY / max : 0;
+      bar.style.transform = "scaleX(" + Math.min(1, Math.max(0, p)) + ")";
+      ticking = false;
+    };
+    window.addEventListener("scroll", function () {
+      if (!ticking) { ticking = true; window.requestAnimationFrame(paint); }
+    }, { passive: true });
+    paint();
+  }
+
   /* ---------- typed role line: titles appear one by one ---------- */
   var typedEl = document.getElementById("typed");
   if (typedEl) {
-    var phrases = ["Software Engineer", "Backend Developer", "Machine Learning Enthusiast"];
+    var phrases = ["Machine Learning Engineer", "Generative AI Developer", "Backend Developer"];
     if (reduced.matches) {
       typedEl.textContent = phrases.join(" | ");
     } else {
@@ -51,6 +67,26 @@
       };
       setTimeout(typeTick, 1000); /* start after the hero load sequence */
     }
+  }
+
+  /* ---------- hero stats count up once on load ---------- */
+  var counters = document.querySelectorAll(".stat .n[data-count]");
+  if (counters.length && !reduced.matches) {
+    counters.forEach(function (el) {
+      var target = parseFloat(el.getAttribute("data-count"));
+      var decimals = parseInt(el.getAttribute("data-decimals") || "0", 10);
+      if (isNaN(target)) return;
+      var start = null, dur = 1100;
+      var step = function (ts) {
+        if (start === null) start = ts;
+        var t = Math.min(1, (ts - start) / dur);
+        var eased = 1 - Math.pow(1 - t, 3); /* ease-out cubic */
+        el.textContent = (target * eased).toFixed(decimals);
+        if (t < 1) window.requestAnimationFrame(step);
+        else el.textContent = target.toFixed(decimals);
+      };
+      window.requestAnimationFrame(step);
+    });
   }
 
   /* ---------- scrollspy: highlight the section in view ---------- */

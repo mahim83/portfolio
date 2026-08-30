@@ -3,9 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mahim Katiyar — AI/ML · Computer Engineering</title>
-<meta name="description" content="Portfolio of Mahim Katiyar — Software Engineer, Backend Developer, and Machine Learning enthusiast; final-year Computer Engineering student at Thapar Institute.">
+<title>Mahim Katiyar — AI/ML · Generative AI · Computer Engineering</title>
+<meta name="description" content="Portfolio of Mahim Katiyar — machine learning, generative AI, and backend engineering. Final-year Computer Engineering student at Thapar Institute, building multi-agent AI systems, deep-learning models, and the FastAPI services that serve them.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230C1618'/%3E%3Cpath d='M8 38 L18 38 L24 24 L32 46 L40 18 L46 38 L56 38' fill='none' stroke='%23E5A23F' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="css/styles.css">
 <script>
   /* dark by default; apply a saved light choice before first paint to avoid a flash */
@@ -18,9 +21,11 @@
 </head>
 <body>
 
+<div class="progress" id="progress" aria-hidden="true"></div>
+
 <header class="nav">
   <div class="wrap nav-inner">
-    <a class="brand" href="#top"><b>MK</b><span class="brand-name"> · mahim katiyar</span></a>
+    <a class="brand" href="#top"><b>MK</b><span class="brand-name">mahim katiyar</span></a>
     <nav class="nav-links" aria-label="Sections">
       <a href="#projects">Work</a>
       <a href="#experience">Experience</a>
@@ -42,20 +47,27 @@
       <p class="badge rise rise-1"><span class="dot" aria-hidden="true"></span>Open to internships &amp; full-time jobs</p>
       <h1 class="rise rise-2">Mahim Katiyar</h1>
       <p class="role rise rise-3">
-        <span class="sr-only">Software Engineer | Backend Developer | Machine Learning Enthusiast</span>
+        <span class="sr-only">Machine Learning Engineer | Generative AI Developer | Backend Developer</span>
         <span aria-hidden="true"><span id="typed"></span><span class="caret"></span></span>
       </p>
       <p class="lede rise rise-4">
-        Final-year Computer Engineering student at Thapar Institute of Engineering and Technology,
-        building deep-learning models, generative-AI applications, and the FastAPI backends that
-        serve them — and solving complex algorithmic challenges along the way.
+        Final-year Computer Engineering student at Thapar Institute of Engineering and Technology.
+        I build <strong>multi-agent AI systems</strong>, deep-learning models, and the
+        <strong>FastAPI backends</strong> that serve them — from EEG signal classification to
+        RAG pipelines that answer questions about a two-hour video.
       </p>
       <div class="hero-links rise rise-5">
         <a class="btn primary" href="#projects">See my work</a>
-        <a class="btn" href="Final_resume.pdf" target="_blank" rel="noopener">Résumé</a>
+        <a class="btn" href="Mahim_Katiyar_Resume.pdf" target="_blank" rel="noopener">Résumé</a>
         <a class="btn" href="https://github.com/mahim83" target="_blank" rel="noopener">GitHub</a>
         <a class="btn" href="https://www.linkedin.com/in/mahim-katiyar-65701727b/" target="_blank" rel="noopener">LinkedIn</a>
         <a class="btn" href="https://leetcode.com/u/mahim83/" target="_blank" rel="noopener">LeetCode</a>
+      </div>
+      <div class="stats rise rise-6">
+        <div class="stat"><span class="n" data-count="8.39" data-decimals="2">8.39</span><span class="k">CGPA / 10</span></div>
+        <div class="stat"><span class="n" data-count="14">14</span><span class="k">Projects built</span></div>
+        <div class="stat"><span class="n" data-count="3">3</span><span class="k">Live demos</span></div>
+        <div class="stat"><span class="n">2027</span><span class="k">Graduating</span></div>
       </div>
     </div>
   </section>
@@ -63,92 +75,240 @@
   <!-- ================= PROJECTS ================= -->
   <section id="projects">
     <div class="wrap">
-      <p class="sec-label reveal">Selected work</p>
-      <h2 class="sec-title reveal">Models and tools, built end to end.</h2>
+      <div class="sec-head">
+        <p class="sec-label reveal">Selected work</p>
+        <h2 class="sec-title reveal">Models and tools, built end to end.</h2>
+        <p class="sec-sub reveal">Agentic AI pipelines, deep-learning research, and shipped Python packages — each one runnable, most with a live demo.</p>
+      </div>
 
-      <article class="project reveal">
-        <div class="p-date">Jul 2026</div>
-        <div class="p-body">
-          <h3>Resume Analyzer — AI-Powered Resume Screening</h3>
-          <p>
-            A full-stack NLP web app that parses resumes (PDF/DOCX) and extracts skills and named
-            entities with <strong>spaCy PhraseMatcher and NER</strong>, served through a documented
-            FastAPI REST API and a Streamlit UI. Semantic job-description matching uses
-            sentence-transformer embeddings and cosine similarity to score resume–JD fit
-            <strong>(0–100)</strong> and surface missing skills — capturing meaning rather than
-            keyword overlap.
-          </p>
-          <div class="tags">
-            <span class="tag">FastAPI</span>
-            <span class="tag">spaCy</span>
-            <span class="tag">Sentence-Transformers</span>
-            <span class="tag">Streamlit</span>
-            <span class="tag">Docker</span>
+      <div class="projects">
+        <article class="project reveal" style="--i:0">
+          <div class="p-meta">
+            <span class="p-num">01</span>
+            <span class="p-date">Aug 2026</span>
           </div>
-          <div class="p-links">
-            <a href="https://github.com/mahim83/resume-analyzer" target="_blank" rel="noopener">GitHub ↗</a>
-            <a href="https://resume-analyzer-mahim.streamlit.app/" target="_blank" rel="noopener">Live demo ↗</a>
+          <div class="p-body">
+            <h3>ResearchMind — Multi-Agent AI Research System</h3>
+            <p>
+              Give it a topic and four agents collaborate to produce a sourced research report.
+              A <strong>Search agent</strong> queries Tavily, a <strong>Reader agent</strong> scrapes the
+              most relevant page, a <strong>Writer chain</strong> drafts the report, and a
+              <strong>Critic chain</strong> reviews and scores it out of 10. Citations are collected from
+              raw tool output rather than the model's summary, so the sources are real — and prompt
+              budgets are trimmed to fit Groq's free-tier token limit.
+            </p>
+            <div class="tags">
+              <span class="tag">LangChain</span>
+              <span class="tag">Groq</span>
+              <span class="tag">Tavily</span>
+              <span class="tag">BeautifulSoup</span>
+              <span class="tag">Streamlit</span>
+              <span class="tag">Agentic AI</span>
+            </div>
+            <div class="p-links">
+              <a href="https://github.com/mahim83/Multi-Agent-AI-Research-system" target="_blank" rel="noopener">GitHub ↗</a>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
 
-      <article class="project reveal">
-        <div class="p-date">May 2026</div>
-        <div class="p-body">
-          <h3>Pneumonia Detection from Chest X-rays</h3>
-          <p>
-            A transfer-learning pipeline for binary classification of chest X-ray images.
-            Benchmarked <strong>DenseNet121, ResNet18, and MobileNetV2</strong> across
-            TensorFlow/Keras and PyTorch, fine-tuning ImageNet-pretrained backbones in two phases
-            with custom image preprocessing. Evaluated on accuracy, ROC-AUC, precision, recall, and
-            F1 to pick the best architecture — reaching <strong>90.87% accuracy</strong>.
-          </p>
-          <div class="tags">
-            <span class="tag">TensorFlow / Keras</span>
-            <span class="tag">PyTorch</span>
-            <span class="tag">Transfer learning</span>
-            <span class="tag">Medical imaging</span>
+        <article class="project reveal" style="--i:1">
+          <div class="p-meta">
+            <span class="p-num">02</span>
+            <span class="p-date">Aug 2026</span>
           </div>
-          <div class="p-links">
-            <a href="https://github.com/mahim83/Pneumonia-detection-" target="_blank" rel="noopener">GitHub ↗</a>
-            <a href="https://pneumonia-detection-mahim83.streamlit.app/" target="_blank" rel="noopener">Live demo ↗</a>
+          <div class="p-body">
+            <h3>AI Video Assistant</h3>
+            <p>
+              Turns any YouTube video or audio file into a transcript, a structured summary, action
+              items, decisions, and open questions — plus a chatbot you can question about its
+              contents. Audio is chunked with yt-dlp/ffmpeg, transcribed through three switchable
+              engines (<strong>Deepgram, Sarvam, and local Whisper</strong>), summarised map-reduce
+              style with Mistral so long recordings never blow the context window, and indexed into
+              <strong>ChromaDB for retrieval-augmented Q&amp;A</strong>. Every run is persisted, so
+              reopening a video is instant.
+            </p>
+            <div class="tags">
+              <span class="tag">RAG</span>
+              <span class="tag">ChromaDB</span>
+              <span class="tag">Deepgram / Whisper</span>
+              <span class="tag">Mistral</span>
+              <span class="tag">LangChain</span>
+              <span class="tag">Streamlit</span>
+            </div>
+            <div class="p-links">
+              <a href="https://github.com/mahim83/AI-Video-Assistant" target="_blank" rel="noopener">GitHub ↗</a>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
 
-      <article class="project reveal">
-        <div class="p-date">Jan 2026</div>
-        <div class="p-body">
-          <h3>TOPSIS — Python Package for Multi-Criteria Decision Making</h3>
-          <p>
-            A reusable, distribution-ready Python package implementing the TOPSIS algorithm,
-            structured to standard PyPI packaging conventions. Ships a
-            <strong>CLI for CSV/XLSX datasets</strong> with automated validation of weights and
-            impacts, plus weighted normalization, ideal-solution computation, and ranking logic for
-            multi-criteria decision analysis.
-          </p>
-          <div class="tags">
-            <span class="tag">Python</span>
-            <span class="tag">CLI</span>
-            <span class="tag">Packaging</span>
-            <span class="tag">Pandas / NumPy</span>
+        <article class="project reveal" style="--i:2">
+          <div class="p-meta">
+            <span class="p-num">03</span>
+            <span class="p-date">Jul 2026</span>
           </div>
-          <div class="p-links">
-            <a href="https://github.com/mahim83/Topsis_Package" target="_blank" rel="noopener">GitHub ↗</a>
-            <a href="https://topsispackage-mahim.streamlit.app/" target="_blank" rel="noopener">Live demo ↗</a>
+          <div class="p-body">
+            <h3>Resume Analyzer — AI-Powered Resume Screening</h3>
+            <p>
+              A full-stack NLP web app that parses resumes (PDF/DOCX) and extracts skills and named
+              entities with <strong>spaCy PhraseMatcher and NER</strong>, served through a documented
+              FastAPI REST API and a Streamlit UI. Semantic job-description matching uses
+              sentence-transformer embeddings and cosine similarity to score resume–JD fit
+              <strong>(0–100)</strong> and surface missing skills — capturing meaning rather than
+              keyword overlap.
+            </p>
+            <div class="tags">
+              <span class="tag">FastAPI</span>
+              <span class="tag">spaCy</span>
+              <span class="tag">Sentence-Transformers</span>
+              <span class="tag">Streamlit</span>
+              <span class="tag">Docker</span>
+            </div>
+            <div class="p-links">
+              <a href="https://github.com/mahim83/resume-analyzer" target="_blank" rel="noopener">GitHub ↗</a>
+              <a href="https://resume-analyzer-mahim.streamlit.app/" target="_blank" rel="noopener">Live demo ↗</a>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
+
+        <article class="project reveal" style="--i:3">
+          <div class="p-meta">
+            <span class="p-num">04</span>
+            <span class="p-date">May 2026</span>
+          </div>
+          <div class="p-body">
+            <h3>Pneumonia Detection from Chest X-rays</h3>
+            <p>
+              A transfer-learning pipeline for binary classification of chest X-ray images.
+              Benchmarked <strong>DenseNet121, ResNet18, and MobileNetV2</strong> across
+              TensorFlow/Keras and PyTorch, fine-tuning ImageNet-pretrained backbones in two phases
+              with custom image preprocessing. Evaluated on accuracy, ROC-AUC, precision, recall, and
+              F1 to pick the best architecture — reaching <strong>90.87% accuracy</strong>.
+            </p>
+            <div class="tags">
+              <span class="tag">TensorFlow / Keras</span>
+              <span class="tag">PyTorch</span>
+              <span class="tag">Transfer learning</span>
+              <span class="tag">Medical imaging</span>
+            </div>
+            <div class="p-links">
+              <a href="https://github.com/mahim83/Pneumonia-detection-" target="_blank" rel="noopener">GitHub ↗</a>
+              <a href="https://pneumonia-detection-mahim83.streamlit.app/" target="_blank" rel="noopener">Live demo ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project reveal" style="--i:4">
+          <div class="p-meta">
+            <span class="p-num">05</span>
+            <span class="p-date">Feb 2026</span>
+          </div>
+          <div class="p-body">
+            <h3>TOPSIS — Python Package for Multi-Criteria Decision Making</h3>
+            <p>
+              A reusable, distribution-ready Python package implementing the TOPSIS algorithm,
+              structured to standard PyPI packaging conventions. Ships a
+              <strong>CLI for CSV/XLSX datasets</strong> with automated validation of weights and
+              impacts, plus weighted normalization, ideal-solution computation, and ranking logic for
+              multi-criteria decision analysis.
+            </p>
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">CLI</span>
+              <span class="tag">Packaging</span>
+              <span class="tag">Pandas / NumPy</span>
+            </div>
+            <div class="p-links">
+              <a href="https://github.com/mahim83/Topsis_Package" target="_blank" rel="noopener">GitHub ↗</a>
+              <a href="https://topsispackage-mahim.streamlit.app/" target="_blank" rel="noopener">Live demo ↗</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- ---------- archive ---------- -->
+      <div class="archive-head reveal">
+        <h3>More from GitHub</h3>
+        <a href="https://github.com/mahim83?tab=repositories" target="_blank" rel="noopener">All repositories ↗</a>
+      </div>
+
+      <div class="mini-grid">
+        <a class="mini reveal" style="--i:0" href="https://github.com/mahim83/Topsis-for-Pretrained-Models" target="_blank" rel="noopener">
+          <div class="mini-top"><span>Feb 2026</span><span class="arrow" aria-hidden="true">↗</span></div>
+          <h4>Model Selection for Sentence Similarity</h4>
+          <p>Benchmarked five pretrained encoders on the STS Benchmark across Pearson correlation, inference time, and model size, then ranked them with TOPSIS — all-MiniLM-L6-v2 won at 0.999.</p>
+          <div class="tags"><span class="tag">Sentence-Transformers</span><span class="tag">TOPSIS</span><span class="tag">NLP</span></div>
+        </a>
+
+        <a class="mini reveal" style="--i:1" href="https://github.com/mahim83/Building-a-Generative-Adversarial-network" target="_blank" rel="noopener">
+          <div class="mini-top"><span>Feb 2026</span><span class="arrow" aria-hidden="true">↗</span></div>
+          <h4>GAN for MNIST Digit Generation</h4>
+          <p>A generator/discriminator pair trained adversarially in PyTorch over 20 epochs — BCE loss, Adam, a 100-dim latent space — producing increasingly digit-like handwritten samples.</p>
+          <div class="tags"><span class="tag">PyTorch</span><span class="tag">GAN</span><span class="tag">Deep Learning</span></div>
+        </a>
+
+        <a class="mini reveal" style="--i:2" href="https://github.com/mahim83/Sampling" target="_blank" rel="noopener">
+          <div class="mini-top"><span>Feb 2026</span><span class="arrow" aria-hidden="true">↗</span></div>
+          <h4>Fraud Detection under Class Imbalance</h4>
+          <p>Five sampling strategies (SMOTE, NearMiss, SMOTE+Tomek, over/under-sampling) crossed with five classifiers on a 1.15%-fraud dataset — applied to training folds only, and scored on recall and ROC-AUC rather than misleading accuracy.</p>
+          <div class="tags"><span class="tag">Scikit-learn</span><span class="tag">SMOTE</span><span class="tag">Imbalanced data</span></div>
+        </a>
+
+        <a class="mini reveal" style="--i:3" href="https://github.com/mahim83/mashup" target="_blank" rel="noopener">
+          <div class="mini-top"><span>Feb 2026</span><span class="arrow" aria-hidden="true">↗</span></div>
+          <h4>Mashup Generator</h4>
+          <p>Downloads N tracks by an artist from YouTube, converts and trims each to a fixed clip, and merges them into one mashup — shipped as both a CLI and a Flask web app that emails the result as a ZIP.</p>
+          <div class="tags"><span class="tag">Flask</span><span class="tag">yt-dlp / ffmpeg</span><span class="tag">Render</span></div>
+        </a>
+
+        <a class="mini reveal" style="--i:4" href="https://github.com/mahim83/Data_Generation_using_Modelling_and_Simulation_for_Machine_Learning" target="_blank" rel="noopener">
+          <div class="mini-top"><span>Feb 2026</span><span class="arrow" aria-hidden="true">↗</span></div>
+          <h4>Simulation-Driven Data Generation</h4>
+          <p>Generated 1,000 methane–air combustion runs with the Cantera simulator, then trained eight regressors to predict adiabatic flame temperature — Random Forest led with R² = 0.995.</p>
+          <div class="tags"><span class="tag">Cantera</span><span class="tag">XGBoost</span><span class="tag">Regression</span></div>
+        </a>
+
+        <a class="mini reveal" style="--i:5" href="https://github.com/mahim83/MLproject" target="_blank" rel="noopener">
+          <div class="mini-top"><span>Apr 2026</span><span class="arrow" aria-hidden="true">↗</span></div>
+          <h4>Modular End-to-End ML Pipeline</h4>
+          <p>A production-shaped project skeleton: separate data-ingestion, transformation, and model-trainer components behind train and predict pipelines, with custom exception handling, logging, and a pip-installable <code>setup.py</code>.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">ML Pipelines</span><span class="tag">Packaging</span></div>
+        </a>
+
+        <a class="mini reveal" style="--i:6" href="https://github.com/mahim83/Deep-Learning-Assignments-certificates" target="_blank" rel="noopener">
+          <div class="mini-top"><span>Mar – May 2026</span><span class="arrow" aria-hidden="true">↗</span></div>
+          <h4>Deep Learning Notebook Collection</h4>
+          <p>Perceptrons and backpropagation implemented from scratch, surface-defect classification with ResNet50/Inception/EfficientNet, image super-resolution with SRGAN and ESRGAN, and a 10-year consumption forecast across RNN, LSTM, GRU, and a vision transformer.</p>
+          <div class="tags"><span class="tag">CNNs</span><span class="tag">RNN / LSTM / GRU</span><span class="tag">SRGAN</span></div>
+        </a>
+
+        <a class="mini reveal" style="--i:7" href="https://github.com/mahim83/Handwritten-Digit-classification" target="_blank" rel="noopener">
+          <div class="mini-top"><span>Aug 2025</span><span class="arrow" aria-hidden="true">↗</span></div>
+          <h4>Handwritten Digit Classification</h4>
+          <p>A dense feed-forward network built in TensorFlow/Keras to classify MNIST digits, with the training curves and misclassification analysis worked through in the notebook.</p>
+          <div class="tags"><span class="tag">TensorFlow / Keras</span><span class="tag">MNIST</span></div>
+        </a>
+
+        <a class="mini reveal" style="--i:8" href="https://github.com/mahim83/House-Price-Pridiction" target="_blank" rel="noopener">
+          <div class="mini-top"><span>Aug 2025</span><span class="arrow" aria-hidden="true">↗</span></div>
+          <h4>House Price Prediction</h4>
+          <p>Regression on the California Housing dataset — correlation-driven EDA with seaborn, feature scaling, and an R²-scored model comparison. An early project, kept for the record.</p>
+          <div class="tags"><span class="tag">Scikit-learn</span><span class="tag">Regression</span><span class="tag">EDA</span></div>
+        </a>
+      </div>
     </div>
   </section>
 
   <!-- ================= EXPERIENCE ================= -->
   <section id="experience" class="alt">
     <div class="wrap">
-      <p class="sec-label reveal">Experience</p>
-      <h2 class="sec-title reveal">Research in the lab.</h2>
+      <div class="sec-head">
+        <p class="sec-label reveal">Experience</p>
+        <h2 class="sec-title reveal">Research in the lab.</h2>
+      </div>
       <div class="xp reveal">
-        <div class="p-date">Jun – Jul 2025</div>
+        <div class="p-meta">
+          <span class="p-date">Jun – Jul 2025</span>
+        </div>
         <div>
           <h3>ELC Summer Internship</h3>
           <p class="org">Thapar Institute of Engineering and Technology</p>
@@ -168,33 +328,19 @@
   <!-- ================= SKILLS ================= -->
   <section id="skills">
     <div class="wrap">
-      <p class="sec-label reveal">Toolkit</p>
-      <h2 class="sec-title reveal">What I work with.</h2>
+      <div class="sec-head">
+        <p class="sec-label reveal">Toolkit</p>
+        <h2 class="sec-title reveal">What I work with.</h2>
+      </div>
       <div class="skill-grid">
-        <div class="skill-group reveal">
-          <h3>Languages</h3>
+        <div class="skill-group reveal" style="--i:0">
+          <h3>Programming</h3>
           <div class="tags">
-            <span class="tag">C</span><span class="tag">C++</span>
-            <span class="tag">Python</span><span class="tag">SQL</span>
+            <span class="tag">Python</span><span class="tag">C++</span>
+            <span class="tag">SQL</span>
           </div>
         </div>
-        <div class="skill-group reveal">
-          <h3>AI / ML</h3>
-          <div class="tags">
-            <span class="tag">Machine Learning</span><span class="tag">Deep Learning</span>
-            <span class="tag">NLP</span><span class="tag">TensorFlow</span>
-            <span class="tag">PyTorch</span><span class="tag">Keras</span>
-            <span class="tag">Scikit-learn</span>
-          </div>
-        </div>
-        <div class="skill-group reveal">
-          <h3>Generative AI</h3>
-          <div class="tags">
-            <span class="tag">LangChain</span><span class="tag">LangGraph</span>
-            <span class="tag">RAG</span>
-          </div>
-        </div>
-        <div class="skill-group reveal">
+        <div class="skill-group reveal" style="--i:1">
           <h3>Core CS</h3>
           <div class="tags">
             <span class="tag">Data Structures &amp; Algorithms</span><span class="tag">OOP</span>
@@ -202,32 +348,51 @@
             <span class="tag">Computer Networks</span>
           </div>
         </div>
-        <div class="skill-group reveal">
-          <h3>Backend</h3>
+        <div class="skill-group reveal" style="--i:2">
+          <h3>ML / DL</h3>
+          <div class="tags">
+            <span class="tag">Feature Engineering</span><span class="tag">Model Evaluation</span>
+            <span class="tag">Hyperparameter Tuning</span><span class="tag">CNNs</span>
+            <span class="tag">RNNs</span><span class="tag">LSTMs</span>
+            <span class="tag">Transfer Learning</span>
+          </div>
+        </div>
+        <div class="skill-group reveal" style="--i:3">
+          <h3>Generative AI</h3>
+          <div class="tags">
+            <span class="tag">RAG</span><span class="tag">LangChain</span>
+            <span class="tag">LangGraph</span><span class="tag">Agentic AI</span>
+          </div>
+        </div>
+        <div class="skill-group reveal" style="--i:4">
+          <h3>Frameworks &amp; Libraries</h3>
+          <div class="tags">
+            <span class="tag">PyTorch</span><span class="tag">TensorFlow</span>
+            <span class="tag">Keras</span><span class="tag">Scikit-learn</span>
+            <span class="tag">Streamlit</span><span class="tag">spaCy</span>
+            <span class="tag">ChromaDB</span><span class="tag">Pandas</span>
+            <span class="tag">NumPy</span>
+          </div>
+        </div>
+        <div class="skill-group reveal" style="--i:5">
+          <h3>Backend &amp; Databases</h3>
           <div class="tags">
             <span class="tag">FastAPI</span><span class="tag">Pydantic</span>
-            <span class="tag">REST APIs</span><span class="tag">Docker</span>
-            <span class="tag">Git / GitHub</span>
+            <span class="tag">REST APIs</span><span class="tag">MySQL</span>
+            <span class="tag">PostgreSQL</span>
           </div>
         </div>
-        <div class="skill-group reveal">
-          <h3>Databases</h3>
+        <div class="skill-group reveal" style="--i:6">
+          <h3>Tools</h3>
           <div class="tags">
-            <span class="tag">MySQL</span><span class="tag">Oracle</span>
+            <span class="tag">Docker</span><span class="tag">Git</span>
+            <span class="tag">GitHub</span><span class="tag">MS Excel</span>
           </div>
         </div>
-        <div class="skill-group reveal">
-          <h3>Data &amp; Libraries</h3>
+        <div class="skill-group reveal" style="--i:7">
+          <h3>Concepts</h3>
           <div class="tags">
-            <span class="tag">Pandas</span><span class="tag">NumPy</span>
-            <span class="tag">Matplotlib</span><span class="tag">NLTK</span>
-            <span class="tag">spaCy</span><span class="tag">Hugging Face Transformers</span>
-          </div>
-        </div>
-        <div class="skill-group reveal">
-          <h3>Spoken</h3>
-          <div class="tags">
-            <span class="tag">English (fluent)</span><span class="tag">Hindi (fluent)</span>
+            <span class="tag">System Design</span>
           </div>
         </div>
       </div>
@@ -238,8 +403,10 @@
   <section id="education" class="alt">
     <div class="wrap two-col">
       <div>
-        <p class="sec-label reveal">Education</p>
-        <h2 class="sec-title reveal">Where I've studied.</h2>
+        <div class="sec-head">
+          <p class="sec-label reveal">Education</p>
+          <h2 class="sec-title reveal">Where I've studied.</h2>
+        </div>
         <div class="row reveal">
           <div class="row-date">2023 – Present</div>
           <div>
@@ -263,13 +430,15 @@
         </div>
       </div>
       <div>
-        <p class="sec-label reveal">On campus</p>
-        <h2 class="sec-title reveal">Beyond the lab.</h2>
+        <div class="sec-head">
+          <p class="sec-label reveal">On campus</p>
+          <h2 class="sec-title reveal">Beyond the lab.</h2>
+        </div>
         <div class="row reveal">
           <div class="row-date">Aug 2024 – May 2025</div>
           <div>
             <h3>Mess Secretary, Hostel B</h3>
-            <p>Managed mess operations with staff to keep service quality high; led a 30-member team planning and running Hostel Night.</p>
+            <p>Oversaw daily mess operations, coordinating with kitchen and service staff to hold food quality and service standards; led a 30-member team planning and running Hostel Night.</p>
           </div>
         </div>
         <div class="row reveal">
@@ -290,7 +459,7 @@
       <div class="contact-grid">
         <div>
           <p class="big reveal">Working on something interesting in ML or data science? <a href="mailto:mahimkatiyar83@gmail.com">Write to me.</a></p>
-          <p class="reveal">I'm open to internships, research collaborations, and projects in machine learning, data science, and backend engineering.</p>
+          <p class="reveal">I'm open to internships, research collaborations, and projects in machine learning, generative AI, and backend engineering.</p>
           <div class="contact-links reveal">
             <a class="btn" href="mailto:mahimkatiyar83@gmail.com">mahimkatiyar83@gmail.com</a>
             <a class="btn" href="tel:+919120545490">+91 91205 45490</a>
